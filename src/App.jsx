@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Navigation from './components/navigation';
-import Header from './components/header';
 import PV from './components/pv';
 import Features from './components/features';
 import About from './components/about';
