@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import YouTube from 'react-youtube';
 
 export class PV extends Component {
-  render() {
+  render(props) {
+    const video_id = props;
     const fixed = {
-      position: 'fixed',
+      position: 'absolute',
       top: 0,
       left: 0,
       width: '100%',
@@ -12,16 +13,16 @@ export class PV extends Component {
       Zindex: -99,
     };
     const overlay = {
-      position: 'fixed',
+      position: 'absolute',
       top: 0,
       left: 0,
       width: '100%',
       height: '100%',
       backgroundColor: 'rgba(0,0,0,0)',
-      Zindex: -1,
+      Zindex: -77,
     };
     const overlay_top = {
-      position: 'fixed',
+      position: 'absolute',
       top: 0,
       left: 0,
       width: '100%',
@@ -29,17 +30,19 @@ export class PV extends Component {
       backgroundColor: 'rgba(0,0,0,1)',
       Zindex: -88,
     };
+
+    //const video_id = "DquS6xxX9Tk";
     const opts = {
       height: '100%',
       width: '100%',
       playerVars: {
         // https://developers.google.com/youtube/player_parameters
-        autoplay: 0,
+        autoplay: 1,
         controls: 0,
         disablekb: 1,
         loop: 1,
         modestbranding: 1,
-        playlist: 'buabL8wjMmQ, UWG8qVylsBc', //DquS6xxX9Tk , buabL8wjMmQ
+        //playlist: 'buabL8wjMmQ, UWG8qVylsBc', DquS6xxX9Tk , buabL8wjMmQ
       },
     };
 
@@ -47,7 +50,7 @@ export class PV extends Component {
       <div style={fixed}>
         <div style={overlay}></div>
         <div style={overlay_top}></div>
-        <YouTube videoId="DquS6xxX9Tk" opts={opts} />
+        <YouTube videoId={this.props.video_id} opts={opts} />
       </div>
     );
   }

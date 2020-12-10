@@ -1,19 +1,22 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import "fullpage.js/vendors/scrolloverflow"; // Optional. When using scrollOverflow:true
-import ReactFullpage from "@fullpage/react-fullpage";
-import PV from './components/pv';
-import Members from './components/members';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import 'fullpage.js/vendors/scrolloverflow'; // Optional. When using scrollOverflow:true
+import ReactFullpage from '@fullpage/react-fullpage';
+import Features from './components/features';
 import About from './components/about';
+import Members from './components/members';
+import History from './components/history';
+import Photos from './components/photos';
+import Source from './components/source';
 import JsonData from './data/data.json';
-import './test.css'
+import './test.css';
 
-export default class App extends Component {
+export default class Fullpage extends Component {
   onLeave(origin, destination, direction) {
-    console.log("Leaving section " + origin.index);
+    console.log('Leaving section ' + origin.index);
   }
   afterLoad(origin, destination, direction) {
-    console.log("After load: " + destination.index);
+    console.log('After load: ' + destination.index);
   }
 
   state = {
@@ -26,7 +29,7 @@ export default class App extends Component {
   componentDidMount() {
     this.getlandingPageData();
   }
-  render () {
+  render() {
     return (
       <ReactFullpage
         scrollOverflow={true}
@@ -36,10 +39,13 @@ export default class App extends Component {
         render={({ state, fullpageApi }) => {
           return (
             <div id="fullpage-wrapper">
-              <div className="section section1">
+              <Features data={this.state.landingPageData.Features} />
+              <About data={this.state.landingPageData.About} />
               <Members data={this.state.landingPageData.Services} />
-              </div>
-              <div className="section">
+              <History data={this.state.landingPageData.Services} />
+              <Photos data={this.state.landingPageData.Testimonials} />
+              <Source data={this.state.landingPageData.Team} />
+              {/* <div className="section">
                 <div className="slide">
                   <h3>Slide 2.1</h3>
                 </div>
@@ -49,17 +55,14 @@ export default class App extends Component {
                 <div className="slide">
                   <h3>Slide 2.3</h3>
                 </div>
-              </div>
-              <div className="section">
-              <About data={this.state.landingPageData.About} />
-                <button onClick={() => fullpageApi.moveTo(2, 0)}>
+              </div> */}
+              {/* <button onClick={() => fullpageApi.moveTo(2, 0)}>
                   Move top
-                </button>
-              </div>
+                </button> */}
             </div>
           );
         }}
       />
-    )
+    );
   }
 }

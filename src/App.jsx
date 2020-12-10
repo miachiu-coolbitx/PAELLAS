@@ -8,6 +8,7 @@ import History from './components/history';
 import Photos from './components/photos';
 import Source from './components/source';
 import JsonData from './data/data.json';
+import Fullpage from './test';
 
 export class App extends Component {
   state = {
@@ -24,14 +25,9 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <Navigation data={this.state.landingPageData.Navigation} />
-        <PV data={this.state.landingPageData.PV} />
-        <Features data={this.state.landingPageData.Features} />
-        <About data={this.state.landingPageData.About} />
-        <Members data={this.state.landingPageData.Services} />
-        <History data={this.state.landingPageData.Services} />
-        <Photos data={this.state.landingPageData.Testimonials} />
-        <Source data={this.state.landingPageData.Team} />
+        {/* <Navigation data={this.state.landingPageData.Navigation} /> */}
+        {/* <PV data={this.state.landingPageData.PV} /> */}
+        <Fullpage />
       </div>
     );
   }

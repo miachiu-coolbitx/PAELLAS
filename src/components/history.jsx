@@ -7,13 +7,17 @@ export class History extends Component {
         <div className="container h-100">
           <div className="row h-100">
             <div className="col-12">
-              <div className="section-title">
-                <h2>History</h2>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit duis
-                  sed dapibus leonec.
-                </p>
-              </div>
+              {/* <div className="section-title">
+                <div className="timeline-container timeline-theme-1">
+                  <div className="timeline js-timeline">
+                    <div data-time="2017">your content or markup</div>
+                    <div data-time="2016">your content or markup</div>
+                    <div data-time="2015">your content or markup</div>
+                    <div data-time="2014">your content or markup</div>
+                    <div data-time="2013">your content or markup</div>
+                  </div>
+                </div>
+              </div> */}
             </div>
             {this.props.data
               ? this.props.data.map((d, i) => (
