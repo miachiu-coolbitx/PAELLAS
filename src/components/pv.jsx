@@ -50,7 +50,11 @@ export class PV extends Component {
       <div style={fixed}>
         <div style={overlay}></div>
         <div style={overlay_top}></div>
-        <YouTube videoId={this.props.video_id} opts={opts} />
+        <YouTube
+          videoId={this.props.video_id}
+          opts={opts}
+          onPause={this._onPause}
+        />
       </div>
     );
   }
@@ -59,6 +63,20 @@ export class PV extends Component {
     // access to player in all event handlers via event.target
     event.target.pauseVideo();
   }
+
+  _onPause(event) {
+    // access to player in all event handlers via event.target
+    window.addEventListener('scroll', function () {
+      event.target.pauseVideo();
+    });
+  }
+
+  // _stopVideo(event) {
+  //   // access to player in all event handlers via event.target
+  //   if (event.data == YT.PlayerState.PLAYING && !done) {
+  //     player.stopVideo();
+  //   }
+  // }
 }
 
 export default PV;
